@@ -16,7 +16,6 @@ class CarSearch
   end
 
   def search
-    # raise
     filter_by_prices       if @params.key? :prices
     filter_by_passengers   if @params.key? :passengers
     filter_by_items        if @params.key? :items
