@@ -36,6 +36,7 @@
 <% if @cars.blank? %>
   <p class="cars-blankslate"></p>
 <% end %>
+
 <% @cars.each do |car|%>
   <div class="modal fade" id="myModal<%= car.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-xl animated zoomInUp" role="document">
@@ -45,32 +46,33 @@
             <span aria-hidden="true">&times;</span>
           </button>
           <div class="container_big_card">
-              <div class="card_description">
-                <div class="photo">
-                  <%= image_tag car.photo %>
-                </div>
+            <div class="card_description">
+              <div class="photo">
+                <% new_width = 500 %>
+                <% car_photo = car.photo.sub(/width=\d+/, "width=#{new_width}") %>
+                <%= image_tag car_photo %>
+              </div>
 
-                <div class="card_infos">
-                  <div class="content">
-                    <h2><%=car.model%></h5>
-                     <p>Passengers : <%=car.passengers%></p>
-                     <p>Year :       <%=car.year%></p>
-                     <p>Fuel :       <%=car.fuel%></p>
-                     <p>Crit'air :   <%=car.critair%></p>
-                     <p>Gearbox :    <%=car.gearbox%></p>
-                     <p>Trunk size : <%=car.trunk_size%> L</p>
-                     <p>Horse Power : <%=car.horse_power%> ch</p>
-                     <p>Din power : <%=car.power_fiscal%> CV</p>
-                     <h3>Price :     <%=car.price%> €</h3>
-                    </div>
-                    <div class="link-infos">
-                    <%=link_to "Favourites", favourites_path, class: 'btn btn-primary more_infos'%>
-                   </div>
+              <div class="card_infos">
+                <div class="content">
+                  <h2><%=car.model%></h5>
+                  <p>Passengers :  <%=car.passengers%></p>
+                  <p>Year :        <%=car.year%></p>
+                  <p>Fuel :        <%=car.fuel%></p>
+                  <p>CRIT'Air :    <%=car.critair%></p>
+                  <p>Gearbox :     <%=car.gearbox%></p>
+                  <p>Trunk size :  <%=car.trunk_size%> L</p>
+                  <p>Horse Power : <%=car.horse_power%> ch</p>
+                  <p>Din power :   <%=car.power_fiscal%> CV</p>
+                  <h3>Price :      <%=car.price%> €</h3>
                 </div>
+                <div class="link-infos">
+                  <%=link_to "Favourites", favourites_path, class: 'btn btn-primary more_infos'%>
+                </div>
+              </div>
 
-                <div id="fav<%= car.id%>" class="fav">
-                   <%= render 'favourite_star', car: car, is_favourite: car.favourite, favourite_id: car.favourite_id %>
-                </div>
+              <div id="fav<%= car.id%>" class="fav">
+                <%= render 'favourite_star', car: car, is_favourite: car.favourite, favourite_id: car.favourite_id %>
               </div>
             </div>
           </div>
