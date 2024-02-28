@@ -20,6 +20,7 @@ gem 'webpacker'
 gem 'pg_search'
 gem 'sweetalert-rails'
 gem 'nokogiri'
+gem "pundit"
 gem 'awesome_print'
 gem 'social-share-button'
 
