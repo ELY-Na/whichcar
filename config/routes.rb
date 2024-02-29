@@ -11,6 +11,11 @@ Rails.application.routes.draw do
     resources :favourites, only: [:create]
   end
 
-  resources :favourites,only: [:index,:show,:destroy]
+  resources :favourites,only: [:index,:show,:destroy]do
+    member do
+      delete :delete_fav_index
+    end
+  end
+
   devise_for :user
 end
