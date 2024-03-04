@@ -2,6 +2,14 @@ one:
   id: 1
   name: "john_doe"
   email: "john@example.com"
-  # password: "azertyuiop" # Replace 'password' with the actual password hash
+  encrypted_password: <%= User.new.send(:password_digest,"azertyuiop") %>
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+two:
+  id: 2
+  name: "toto"
+  email: "toto@toto.com"
+  encrypted_password: <%= User.new.send(:password_digest,"azertyuiop") %>
   created_at: <%= Time.current %>
   updated_at: <%= Time.current %>
