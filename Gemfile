@@ -19,6 +19,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'pg_search'
 gem 'sweetalert-rails'
+gem 'sweetalert2', '~> 7.25', '>= 7.25.6'
 gem 'nokogiri'
 gem "pundit"
 gem 'awesome_print'
