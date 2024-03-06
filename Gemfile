@@ -6,7 +6,7 @@ gem 'bootstrap-sass'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 1.1'
 gem 'puma'
-gem 'rails', '7.1.3' # Update to the latest available version
+gem 'rails', '7.1.3.1' # Update to the latest available version
 gem 'redis'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
